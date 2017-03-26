@@ -149,7 +149,7 @@ public class Path implements Comparable<Path> {
         String[] childSegments = new String[segments.length + 1];
         System.arraycopy(segments, 0, childSegments, 0, segments.length);
         childSegments[segments.length] = name;
-        return new Path(childSegments, absolute);
+        return new Path(childSegments, absolute, absolutePath(name));
     }
 
     /**
@@ -186,7 +186,7 @@ public class Path implements Comparable<Path> {
     }
 
     private boolean isAbsolutePath(String path) {
-        if (!GUtil.isTrue(path)) {
+        if (path == null || path.isEmpty()) {
             throw new InvalidUserDataException("A path must be specified!");
         }
         return path.startsWith(Project.PATH_SEPARATOR);
