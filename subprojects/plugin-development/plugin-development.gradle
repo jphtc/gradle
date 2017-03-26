@@ -21,8 +21,9 @@ dependencies {
     compile project(':publish')
     compile project(':maven')
     compile project(':ivy')
-    testRuntime project(':toolingApi')
-    testRuntime project(':launcher')
+    testRuntime project(':toolingApi') // TODO Remove me!!!
+    testRuntime project(':launcher') // TODO Remove me???
+    testRuntime project(':toolingApiProvider')
     testRuntime project(':testKit')
 }
 
